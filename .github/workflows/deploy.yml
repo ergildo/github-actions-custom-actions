@@ -60,9 +60,8 @@ jobs:
         with:
           name: dist-files
           path: ./dist
-      - name: Output contents
-        run: ls
       - name: Deploy site
+        id: deploy
         uses: ./.github/actions/deploy-aws-s3
         env:
           AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
@@ -71,3 +70,5 @@ jobs:
           bucket: github-custom-action-deploy-s3
           region: us-east-1
           dist-folder: ./dist
+      - name: Output website url
+        run: echo "${{steps.deploy.outputs.website-url}}"
