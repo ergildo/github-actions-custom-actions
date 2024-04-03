@@ -1,7 +1,7 @@
 const core = require('@actions/core');
 const exec = require('@actions/exec');
 function run(){
-    const backet = core.getInput('backet', {required: true})
+    const backet = core.getInput('bucket', {required: true})
     const region = core.getInput('region', {required: true})
     const dist = core.getInput('dist-folder', {required: true})
 
