@@ -1,7 +1,7 @@
 name: Install & cache npm dependencies
 description: 'A solution for installing & chaching npm dependencies'
 inputs:
-  chaching:
+  caching:
     description: 'Define whether caching should be enable or not'
     required: 'false'
     default: 'true'
