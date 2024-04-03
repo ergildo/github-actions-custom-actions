@@ -1,8 +1,15 @@
 const core = require('@actions/core');
-const github = require('@actions/github');
+const exec = require('@actions/exec');
 function run(){
+    const backet = core.getInput('backet', {required: true})
+    const region = core.getInput('region', {required: true})
+    const dist = core.getInput('dist-folder', {required: true})
 
-    core.notice('Hello from javascript!');
+    exec.exec(`aws s3 sync ${dist}  s3:\\${backet} --region=${region}`);
+
+    siteUrl = `http://${backet}.s3-website-${region}.amazonaws.com/`
+
+   core.setOutput('website-url', siteUrl);
 
 };
 
