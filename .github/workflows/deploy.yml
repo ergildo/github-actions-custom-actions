@@ -64,3 +64,10 @@ jobs:
         run: ls
       - name: Deploy site
         run: echo "Deploying..."
+  run-js-custom-action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v3
+      - name: Run JS custom Action
+        uses: ./.github/actions/deploy-aws-s3
