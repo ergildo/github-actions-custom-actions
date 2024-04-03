@@ -1,4 +1,4 @@
 name: 'Deploy to AWS S3'
 description: 'Deploy static website to AWS'
-runs: 'node20'
+using: 'node20'
 main: 'main.js'
